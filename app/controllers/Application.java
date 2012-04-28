@@ -10,7 +10,8 @@ import models.*;
 public class Application extends Controller {
 
     public static void index() {
-        render();
+        Recipe frontRecipe = Recipe.find("order by posted desc").first();
+        render(frontRecipe);
     }
 
 }

@@ -5,3 +5,41 @@
 #   email: bob@gmail.com
 #   password: secret
 #   fullname: Bob
+User(trex):
+    email: t-rex@dinosaursareawesome.co.uk
+    password: trex
+    name: T-Rex
+
+User(utahraptor):
+    email: utahraptor@dinosaursareawesome.co.uk
+    password: utah
+    name: Utahraptor
+
+Recipe(marmiteOnToast):
+    title: Marmite on Toast
+    posted: 2012-04-26
+    author: trex
+    ingredients:
+     ? 1 jar
+     : Marmite
+     ? 1 loaf
+     : Bread
+    steps:
+     ? 1
+     : Toast bread
+     ? 2
+     : Spread marmite on bread
+     ? 3
+     : Eat
+
+Comment(comment1):
+    postedAt: 2012-04-27
+    author: utahraptor
+    recipe: marmiteOnToast
+    content: This recipe is sweet you guys.
+
+Comment(comment2):
+    postedAt: 2012-04-28
+    author: trex
+    recipe: marmiteOnToast
+    content: Thanks!

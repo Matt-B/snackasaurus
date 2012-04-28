@@ -2,14 +2,8 @@ package models;
 
 import play.db.jpa.Model;
 
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.TreeMap;
+import javax.persistence.*;
+import java.util.*;
 
 /**
  * Recipe class
@@ -28,6 +22,8 @@ public class Recipe extends Model {
     public Map<String, String> ingredients;
     @ElementCollection
     public Map<Integer, String> steps;
+    @OneToMany(mappedBy="recipe", cascade=CascadeType.ALL)
+    public List<Comment> comments;
 
     public Recipe(User author, String title, Map<String, String> ingredients, Map<Integer, String> steps) {
         this.author = author;
@@ -35,6 +31,7 @@ public class Recipe extends Model {
         this.ingredients = ingredients;
         this.steps = steps;
         this.posted = new Date();
+
     }
 
 }

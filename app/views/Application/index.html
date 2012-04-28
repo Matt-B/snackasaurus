@@ -1,4 +1,33 @@
 #{extends 'main.html' /}
-#{set title:'Home' /}
+#{set title:'snackasaurus' /}
 
-#{welcome /}
+#{if frontRecipe}
+        <div class="recipe">
+            <h2 class="recipe-title">
+                <a href="#">${frontRecipe.title}</a>
+            </h2>
+            <ul class="ingredients">
+                #{list items:frontRecipe.ingredients.keySet(), as:'key'}
+                    <li>
+                        ${key}
+                        ${frontRecipe.ingredients.get(key)}
+                    </li>
+                #{/list}
+            </ul>
+            <ol class="steps">
+                #{list items:frontRecipe.steps.keySet(), as:'key'}
+                    <li>
+                        ${key}
+                        ${frontRecipe.steps.get(key)}
+                    </li>
+                #{/list}
+            </ol>
+            ${frontRecipe.comments.size() ?: 'no'}
+            comment${frontRecipe.comments.size().pluralize()}
+        </div>
+#{/if}
+#{else}
+        <div class="emptyPage">
+            <h2>No recipes to display!</h2>
+        </div>
+#{/else}
