@@ -1,10 +1,6 @@
 # you describe your data using the YAML notation here
 # and then load them using Fixtures.load("data.yml")
 
-# User(bob):
-#   email: bob@gmail.com
-#   password: secret
-#   fullname: Bob
 User(trex):
     email: t-rex@dinosaursareawesome.co.uk
     password: trex
@@ -32,6 +28,24 @@ Recipe(marmiteOnToast):
      ? 3
      : Eat
 
+Recipe(vegemiteOnToast):
+    title: Vegemite on Toast
+    posted: 2012-05-12
+    author: utahraptor
+    ingredients:
+     ? 1 pot
+     : Vegemite
+     ? 1 slice
+     : Toast
+    steps:
+     ? 1
+     : Toast bread
+     ? 2
+     : Spread vegemite on bread
+     ? 3
+     : Chow down
+
+
 Comment(comment1):
     postedAt: 2012-04-27
     author: utahraptor
@@ -43,3 +57,9 @@ Comment(comment2):
     author: trex
     recipe: marmiteOnToast
     content: Thanks!
+
+Comment(comment3):
+    postedAt: 2012-05-13
+    author: trex
+    recipe: vegemiteOnToast
+    content: This is OK

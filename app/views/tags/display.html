@@ -1,0 +1,45 @@
+*{Display a recipe as either title, summary or full}*
+
+<div class="recipe">
+    <h2 class="recipe-title">
+        <a href="#">${_recipe.title}</a>
+    </h2>
+</div>
+
+#{ifnot _as == 'title'}
+    <ul class="ingredients">
+        #{list items:_recipe.ingredients.keySet(), as:'key'}
+        <li>
+            ${key}
+            ${_recipe.ingredients.get(key)}
+        </li>
+        #{/list}
+    </ul>
+#{/ifnot}
+
+#{if _as == 'full'}
+    <ol class="steps">
+        #{list items:_recipe.steps.keySet(), as:'key'}
+        <li>
+            ${key}
+            ${_recipe.steps.get(key)}
+        </li>
+        #{/list}
+    </ol>
+#{/if}
+
+${_recipe.comments.size() ?: 'no'}
+comment${_recipe.comments.size().pluralize()}
+
+#{if _as == 'full'}
+    #{list items:_recipe.comments, as:'comment'}
+        <div class="comment">
+            On ${comment.postedAt}, ${comment.author.name} said:
+            ${comment.content}
+        </div>
+    #{/list}
+#{/if}
+
+#{else}
+
+#{/else}

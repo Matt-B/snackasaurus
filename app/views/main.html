@@ -11,6 +11,19 @@
         #{get 'moreScripts' /}
     </head>
     <body>
+        <div id="header">
+            <div id="logo">
+                #{get 'title' /}
+            </div>
+            <div id="tools">
+                <a href="#">Login</a>
+                <a href="#">Search</a>
+                <a href="#">Help</a>
+            </div>
+        </div>
         #{doLayout /}
+        <div id="footer">
+            Some copy that will go at the bottom of each page.
+        </div>
     </body>
 </html>
