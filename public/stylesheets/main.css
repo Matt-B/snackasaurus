@@ -19,22 +19,22 @@ html, body {
     color: black;
     display: absolute;
     left: 0px;
-    width: 60%
+    width: 55%
+    height: 125px;
 }
 
 #logo-image {
     position: absolute;
     width: 40%;
     right: 0px;
-    top: 5%;
+    top: 3%;
     float: right;
     text-align: right;
 }
 
 #logo-image img {
     height: 121px;
-    width:   174px;
-
+    width:  174px;
 }
 
 #tools {
