@@ -2,11 +2,11 @@
 
 <div class="recipe">
     <h2 class="recipe-title">
-        <a href="#">${_recipe.title}</a>
+        <a href="@{Application.show(_recipe.id)}">${_recipe.title}</a>
     </h2>
 </div>
 
-#{ifnot _as == 'title'}
+#{if _as == 'full' || _as == 'summary'}
     <ul class="ingredients">
         #{list items:_recipe.ingredients.keySet(), as:'key'}
         <li>
@@ -15,7 +15,7 @@
         </li>
         #{/list}
     </ul>
-#{/ifnot}
+#{/if}
 
 #{if _as == 'full'}
     <ol class="steps">

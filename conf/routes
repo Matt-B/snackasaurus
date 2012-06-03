@@ -5,6 +5,9 @@
 # Home page
 GET     /                                       Application.index
 
+#Recipe page
+GET     /recipes/{id}                             Application.show
+
 # Ignore favicon requests
 GET     /favicon.ico                            404
 

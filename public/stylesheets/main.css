@@ -1,0 +1,65 @@
+html, body {
+    background: white;
+    font-family: "Arial", Arial, sans-serif;
+}
+
+#header {
+    display: relative;
+    padding: 10px;
+    width: 95%;
+    height: 30%
+}
+
+#logo {
+    display: relative
+}
+
+#logo-text {
+    font-size: 6em;
+    color: black;
+    display: absolute;
+    left: 0px;
+    width: 60%
+}
+
+#logo-image {
+    position: absolute;
+    width: 40%;
+    right: 0px;
+    top: 5%;
+    float: right;
+    text-align: right;
+}
+
+#logo-image img {
+    height: 121px;
+    width:   174px;
+
+}
+
+#tools {
+    position: absolute;
+    text-align: right;
+    top: 125px;
+    left: 20px;
+    \\border-style: solid;
+    \\border-width: 1px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+#content {
+    padding: 20px;
+    left: 5%;
+    right: 5%;
+    top: 5%;
+}
+
+#content recipe {
+    text-align: left;
+}
+
+#footer {
+    text-align: right;
+    padding: 10px;
+}

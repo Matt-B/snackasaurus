@@ -15,4 +15,16 @@ public class Application extends Controller {
         render(frontRecipe, olderRecipes);
     }
 
+    public static void show(Long id) {
+        Recipe recipe = Recipe.findById(id);
+        render(recipe);
+    }
+
+    public static void postComment(Long recipeId, Long authorId, String content) {
+        User user = User.findById(authorId);
+        Recipe recipe = Recipe.findById(recipeId);
+        recipe.addComment(user, content);
+        show(recipeId);
+    }
+
 }

@@ -31,7 +31,13 @@ public class Recipe extends Model {
         this.ingredients = ingredients;
         this.steps = steps;
         this.posted = new Date();
+    }
 
+    public Recipe addComment(User author, String content) {
+        Comment comment = new Comment(author, this, content);
+        this.comments.add(comment);
+        this.save();
+        return this;
     }
 
 }
