@@ -1,6 +1,13 @@
 html, body {
     background: white;
     font-family: "Arial", Arial, sans-serif;
+    text-transform: lowercase;
+}
+
+a {
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
 }
 
 #header {
@@ -48,6 +55,10 @@ html, body {
     border-radius: 5px;
 }
 
+#tools .tool-item {
+    padding: 30px;
+}
+
 #content {
     padding: 20px;
     left: 5%;
@@ -59,7 +70,12 @@ html, body {
     text-align: left;
 }
 
+#content recipe ingredients {
+    list-style-type: none;
+}
+
 #footer {
     text-align: right;
     padding: 10px;
+    bottom: 10px;
 }
