@@ -4,7 +4,7 @@
     <head>
         <title>#{get 'title' /}</title>
         <meta charset="${_response_encoding}">
-        <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
+        <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/bootstrap.css'}">
         #{get 'moreStyles' /}
         <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
         <script src="@{'/public/javascripts/jquery-1.6.4.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
@@ -12,9 +12,9 @@
     </head>
     <body>
         <div id="header">
-            <div id="logo">
-                <div id="logo-text">snack a <strong>saurus</strong></div>
-                <div id="logo-image"><img src="/public/images/logo.jpg" alt="" /></div>
+            <div id="logo" class="row">
+                <div id="logo-text" class="span8">snack a <strong>saurus</strong></div>
+                <div id="logo-image" class="span4"><img src="/public/images/logo.jpg" alt="" /></div>
             </div>
 
             <div id="tools">
