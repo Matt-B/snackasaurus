@@ -1,16 +1,35 @@
 #{extends 'main.html' /}
 #{set title:'snackasaurus' /}
 
+<div class="row">
+    <div class="span4">
+        <img src="/public/images/logo.jpg" />
+    </div>
+    <div class="span8">
+        <div class="hero-unit">
+            <h1>snackasaurus</h1>
+            <h2>we're gonna help you get <em>fat.</em></h2>
+            <p>snackasaurus is a website to help you store, search, and share all your favourite recipes.</p>
+        </div>
+</div>
+
+<div class="row">
 #{if frontRecipe}
+    <div class="span4">
         #{display recipe:frontRecipe, as:'summary' /}
+     </div>
 #{if olderRecipes}
     #{list items:olderRecipes, as:'oldRecipe'}
-        #{display recipe:oldRecipe, as: 'title' /}
+    <div class="span4">
+        #{display recipe:oldRecipe, as: 'summary' /}
+    </div>
     #{/list}
 #{/if}
 #{/if}
 #{else}
-    <div class="emptyPage">
+    <div class="span12">
         <h2>No recipes to display!</h2>
+        <p>There are no recipes at the moment. Why don't you submit one?</p>
     </div>
 #{/else}
+</div>

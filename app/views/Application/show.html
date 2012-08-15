@@ -1,19 +1,15 @@
 #{extends 'main.html' /}
 #{set title:recipe.title /}
 
-<ul id="pagination">
+<ul class="pager">
     #{if recipe.previous()}
-    <li id="previous">previous:
-        <a href="@{Application.show(recipe.previous().id)}">
-            ${recipe.previous().title}
-        </a>
+    <li class="previous">
+        <a href="@{Application.show(recipe.previous().id)}">&larr; Previous</a>
     </li>
     #{/if}
     #{if recipe.next()}
-    <li id="next">next:
-        <a href="@{Application.show(recipe.next().id)}">
-            ${recipe.next().title}
-        </a>
+    <li class="next">
+        <a href="@{Application.show(recipe.next().id)}">Next &rarr;</a>
     </li>
     #{/if}
 </ul>
