@@ -6,13 +6,19 @@
 GET     /                                       Application.index
 
 #Recipe page
-GET     /recipes/{id}                             Application.show
+GET     /recipes/{id}                           Application.show
+
+#Dashboard area
+GET     /dashboard/?                            Dashboard.index
 
 # Ignore favicon requests
 GET     /favicon.ico                            404
 
 # Map static resources from the /app/public folder to the /public path
 GET     /public/                                staticDir:public
+
+# Import Secure routes
+*       /                                       module:secure
 
 # Catch all
 *       /{controller}/{action}                  {controller}.{action}
