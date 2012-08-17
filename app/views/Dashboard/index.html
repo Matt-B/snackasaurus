@@ -2,3 +2,13 @@
 #{set title:'snackasaurus dashboard' /}
 
 Welcome ${user}!
+
+#{list items:recipes, as:'recipe'}
+<p class="post ${post_parity}">
+    <a href="/recipes/${recipe.id}">${recipe.title}</a>
+</p>
+#{/list}
+
+<p id="newRecipe" >
+    <a href="#"><span>+</span>submit a new recipe</a>
+</p>

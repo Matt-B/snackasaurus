@@ -10,6 +10,8 @@ GET     /recipes/{id}                           Application.show
 
 #Dashboard area
 GET     /dashboard/?                            Dashboard.index
+GET     /dashboard/new                          Dashboard.form
+POST    /dashboard/new                          Dashboard.save
 
 # Ignore favicon requests
 GET     /favicon.ico                            404

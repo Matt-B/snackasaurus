@@ -40,6 +40,16 @@ public class Recipe extends Model {
         return this;
     }
 
+    public Recipe addStep(String stepDescription) {
+        Set<Integer> stepNumbers = this.steps.keySet();
+        Integer highestStepNumber = 1;
+        while(stepNumbers.contains(highestStepNumber)) {
+            highestStepNumber++;
+        }
+        this.steps.put(highestStepNumber, stepDescription);
+        return this;
+    }
+
     public Recipe previous() {
         return Recipe.find("posted < ? order by posted desc", posted).first();
     }

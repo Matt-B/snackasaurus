@@ -29,8 +29,8 @@ public class Application extends Controller {
         render(recipe);
     }
 
-    public static void postComment(Long recipeId, String authorEmail, String content) {
-        User user = User.find("byEmail", authorEmail).first();
+    public static void postComment(Long recipeId, String content) {
+        User user = User.find("byEmail", Security.connected()).first();
         Recipe recipe = Recipe.findById(recipeId);
         recipe.addComment(user, content);
         show(recipeId);
