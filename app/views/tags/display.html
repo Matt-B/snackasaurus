@@ -7,7 +7,9 @@
 </div>
 
 #{if _as == 'full' || _as == 'summary'}
-    <ul class="ingredients">
+
+    <ul id="ingredients">
+        <p>You will need...</p>
         #{list items:_recipe.ingredients.keySet(), as:'key'}
         <li>
             ${key}
