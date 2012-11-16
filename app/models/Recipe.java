@@ -19,13 +19,12 @@ public class Recipe extends Model {
     @ManyToOne
     public User author;
     @ElementCollection
-    public Map<String, String> ingredients;
-    @ElementCollection
-    public Map<Integer, String> steps;
+    public List<String> ingredients;
+    public String steps;
     @OneToMany(mappedBy="recipe", cascade=CascadeType.ALL)
     public List<Comment> comments;
 
-    public Recipe(User author, String title, Map<String, String> ingredients, Map<Integer, String> steps) {
+    public Recipe(User author, String title, List<String> ingredients, String steps) {
         this.author = author;
         this.title = title;
         this.ingredients = ingredients;
@@ -37,16 +36,6 @@ public class Recipe extends Model {
         Comment comment = new Comment(author, this, content);
         this.comments.add(comment);
         this.save();
-        return this;
-    }
-
-    public Recipe addStep(String stepDescription) {
-        Set<Integer> stepNumbers = this.steps.keySet();
-        Integer highestStepNumber = 1;
-        while(stepNumbers.contains(highestStepNumber)) {
-            highestStepNumber++;
-        }
-        this.steps.put(highestStepNumber, stepDescription);
         return this;
     }
 

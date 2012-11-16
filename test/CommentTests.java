@@ -6,9 +6,7 @@ import org.junit.Test;
 import play.test.Fixtures;
 import play.test.UnitTest;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
 public class CommentTests extends UnitTest {
 
@@ -22,16 +20,16 @@ public class CommentTests extends UnitTest {
         //Create a new user to be the author
         User trex = new User("trex@snacksaurus.com", "password", "T. Rex").save();
 
-        //Create ingredients and steps
-        Map<String, String> ingredients = new HashMap<String, String>();
-        ingredients.put("1 piece", "Bread");
-        ingredients.put("20g", "Marmite");
-        Map<Integer, String> steps = new TreeMap<Integer, String>();
-        steps.put(1, "Toast Bread.");
-        steps.put(2, "Spread Marmite on toasted bread.");
+        List<String> ingredients = new ArrayList<String>();
+        ingredients.add("1 piece Bread");
+        ingredients.add("20g Marmite");
+        String steps = ("Toast Bread. Spread Marmite on toasted bread");
 
         //Create and save the new recipe
-        Recipe recipe = new Recipe(trex, "Marmite on Toast", ingredients, steps).save();
+        new Recipe(trex, "Marmite on Toast", ingredients, steps).save();
+
+        //Retrieve the recipe by title
+        Recipe recipe = Recipe.find("byTitle", "Marmite on Toast").first();
 
         //Create and save a new comment
         new Comment(trex, recipe, "I prefer humans.").save();

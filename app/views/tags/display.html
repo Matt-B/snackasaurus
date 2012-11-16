@@ -10,23 +10,17 @@
 
     <ul id="ingredients">
         <p>You will need...</p>
-        #{list items:_recipe.ingredients.keySet(), as:'key'}
+        #{list items:_recipe.ingredients, as:'ingredient'}
         <li>
-            ${key}
-            ${_recipe.ingredients.get(key)}
+            ${ingredient}
         </li>
         #{/list}
     </ul>
 #{/if}
 
 #{if _as == 'full'}
-    <ol class="steps">
-        #{list items:_recipe.steps.keySet(), as:'key'}
-        <li>
-            ${key}
-            ${_recipe.steps.get(key)}
-        </li>
-        #{/list}
+    <div class="steps">
+        ${_recipe.steps}
     </ol>
 #{/if}
 

@@ -1,6 +1,6 @@
 #{extends 'main.html' /}
 
-<h3>Write, <span>a new recipe</span></h3>
+<h3>Write a new recipe</h3>
 
 #{form @save()}
 
@@ -14,7 +14,7 @@
     #{field 'title'}
     <label>Recipe title:</label>
     <input type="text" name="${field.name}"
-           value="${post?.title}" />
+           value="${recipe?.title}" />
     <span class="error">#{error 'recipe.title' /}</span>
     #{/field}
 </p>

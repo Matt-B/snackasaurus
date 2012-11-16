@@ -4,9 +4,7 @@ import org.junit.*;
 import play.test.Fixtures;
 import play.test.UnitTest;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
 public class RecipeTests extends UnitTest {
 
@@ -22,12 +20,10 @@ public class RecipeTests extends UnitTest {
         User trex = new User("trex@snacksaurus.com", "password", "T. Rex").save();
 
         //Create ingredients and steps
-        Map<String, String> ingredients = new HashMap<String, String>();
-        ingredients.put("1 piece", "Bread");
-        ingredients.put("20g", "Marmite");
-        Map<Integer, String> steps = new TreeMap<Integer, String>();
-        steps.put(1, "Toast Bread.");
-        steps.put(2, "Spread Marmite on toasted bread.");
+        List<String> ingredients = new ArrayList<String>();
+        ingredients.add("1 piece Bread");
+        ingredients.add("20g Marmite");
+        String steps = ("Toast Bread. Spread Marmite on toasted bread");
 
         //Create and save the new recipe
         new Recipe(trex, "Marmite on Toast", ingredients, steps).save();

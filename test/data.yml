@@ -16,35 +16,18 @@ Recipe(marmiteOnToast):
     posted: 2012-04-26
     author: trex
     ingredients:
-     ? 1 jar
-     : Marmite
-     ? 1 loaf
-     : Bread
-    steps:
-     ? 1
-     : Toast bread
-     ? 2
-     : Spread marmite on bread
-     ? 3
-     : Eat
+        - 1 jar Marmite
+        - 1 loaf Bread
+    steps: Toast bread. Spread marmite on bread. Eat.
 
 Recipe(vegemiteOnToast):
     title: Vegemite on Toast
     posted: 2012-05-12
     author: utahraptor
     ingredients:
-     ? 1 pot
-     : Vegemite
-     ? 1 slice
-     : Toast
-    steps:
-     ? 1
-     : Toast bread
-     ? 2
-     : Spread vegemite on bread
-     ? 3
-     : Chow down
-
+        - 1 pot Vegemite
+        - 1 slice Toast
+    steps: Toast bread. Spread vegemite on bread. Chow down
 
 Comment(comment1):
     postedAt: 2012-04-27
