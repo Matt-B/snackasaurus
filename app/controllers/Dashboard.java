@@ -6,6 +6,7 @@ import play.mvc.Before;
 import play.mvc.Controller;
 import play.mvc.With;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @With(Secure.class)
@@ -30,8 +31,21 @@ public class Dashboard extends Controller {
         render();
     }
 
-    public static void save() {
-        //Not implemented yet
+    public static void save(String title, String ingredients, String steps) {
+        User author = User.find("byEmail", Security.connected()).first();
+        List<String> ingredientList = new ArrayList<String>();
+        for(String ingredient : ingredients.split(",")) {
+            ingredientList.add(ingredient);
+        }
+        Recipe recipe = new Recipe(author, title, ingredientList, steps);
+
+        validation.valid(recipe);
+        if(validation.hasErrors()) {
+            render("@form", recipe);
+        }
+
+        recipe.save();
+        index();
     }
 
 }

@@ -20,23 +20,23 @@
 </p>
 
 <p>
-    #{field 'content'}
-    <label>Write here:</label>
-    <textarea name="${field.name}">${recipe?.content}</textarea>
-    <span class="error">#{error 'recipe.content' /}</span>
+    #{field 'ingredients'}
+    <label>Enter some ingredients:</label>
+    <input type="text"
+           name="${field.name}" value="${recipe?.ingredients?.join(',')}" />
     #{/field}
 </p>
 
 <p>
-    #{field 'tags'}
-    <label>Enter some tags:</label>
-    <input type="text" size="50"
-           name="${field.name}" value="${post?.tags?.join(' ')}" />
+    #{field 'steps'}
+    <label>Write what to do here:</label>
+    <textarea name="${field.steps}" value="${recipe?.steps}"></textarea>
+    <span class="error">#{error 'recipe.steps' /}</span>
     #{/field}
 </p>
 
 <p>
-    <input type="submit" value="Publish this post to the blog" />
+    <input type="submit" value="All done? Publish this recipe!" />
 </p>
 
 #{/form}

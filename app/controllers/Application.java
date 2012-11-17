@@ -20,7 +20,7 @@ public class Application extends Controller {
 
     public static void index() {
         Recipe frontRecipe = Recipe.find("order by posted desc").first();
-        List<Recipe> olderRecipes = Recipe.find("order by posted desc").from(1).fetch(4);
+        List<Recipe> olderRecipes = Recipe.find("order by posted desc").fetch(2);
         render(frontRecipe, olderRecipes);
     }
 

@@ -20,6 +20,7 @@ public class Recipe extends Model {
     public User author;
     @ElementCollection
     public List<String> ingredients;
+    @Lob
     public String steps;
     @OneToMany(mappedBy="recipe", cascade=CascadeType.ALL)
     public List<Comment> comments;

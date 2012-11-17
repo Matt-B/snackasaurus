@@ -4,11 +4,11 @@
 Welcome ${user}!
 
 #{list items:recipes, as:'recipe'}
-<p class="post ${post_parity}">
+<p class="recipe ${recipe_parity}">
     <a href="/recipes/${recipe.id}">${recipe.title}</a>
 </p>
 #{/list}
 
 <p id="newRecipe" >
-    <a href="#"><span>+</span>submit a new recipe</a>
+    <a href="/dashboard/new?"><span>+</span>submit a new recipe</a>
 </p>
