@@ -24,13 +24,15 @@
     <label>Enter some ingredients:</label>
     <input type="text"
            name="${field.name}" value="${recipe?.ingredients?.join(',')}" />
+    <span class="error">#{error 'recipe.ingredients' /}</span>
     #{/field}
 </p>
 
 <p>
     #{field 'steps'}
-    <label>Write what to do here:</label>
-    <textarea name="${field.steps}" value="${recipe?.steps}"></textarea>
+    <label>Write some steps here:</label>
+    <textarea type="text" id="steps"
+              name="${field.name}" value="${recipe?.steps}">${recipe?.steps}</textarea>
     <span class="error">#{error 'recipe.steps' /}</span>
     #{/field}
 </p>

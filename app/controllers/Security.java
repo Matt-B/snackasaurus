@@ -8,4 +8,8 @@ public class Security extends Secure.Security {
         return User.connect(username, password) != null;
     }
 
+    static void onDisconnect() {
+        Application.index();
+    }
+
 }

@@ -32,6 +32,7 @@ public class Dashboard extends Controller {
     }
 
     public static void save(String title, String ingredients, String steps) {
+        System.out.println(steps);
         User author = User.find("byEmail", Security.connected()).first();
         List<String> ingredientList = new ArrayList<String>();
         for(String ingredient : ingredients.split(",")) {
