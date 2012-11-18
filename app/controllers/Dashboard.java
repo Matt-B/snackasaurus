@@ -15,6 +15,7 @@ public class Dashboard extends Controller {
     @Before
     static void setConnectedUser() {
         if(Security.isConnected()) {
+            System.out.println("The user is connected");
             User user = User.find("byEmail", Security.connected()).first();
             renderArgs.put("user", user.name);
             renderArgs.put("email", user.email);

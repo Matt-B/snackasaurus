@@ -4,6 +4,12 @@
 <h2>Register a new user</h2>
 #{form @saveUser()}
 
+#{ifErrors}
+<p class="error">
+    ${errors}
+</p>
+#{/ifErrors}
+
 <p>
 #{field 'email'}
 <label>Your e-mail address:</label>
@@ -23,6 +29,14 @@
 <label>Your real name:</label>
 <input type="text" name="${field.name}" value="${user?.name}" />
 #{/field}
+</p>
+
+<p>
+    <label for="code">Please type the code below: </label>
+    <img src="@{Application.captcha(randomID)}" />
+    <br />
+    <input type="text" name="code" id="code" size="18" value="" />
+    <input type="hidden" name="randomID" value="${randomID}" />
 </p>
 
 <p>

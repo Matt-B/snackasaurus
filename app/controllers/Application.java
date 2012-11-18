@@ -2,6 +2,9 @@ package controllers;
 
 import models.Recipe;
 import models.User;
+import play.cache.Cache;
+import play.libs.Codec;
+import play.libs.Images;
 import play.mvc.Before;
 import play.mvc.Controller;
 
@@ -26,15 +29,22 @@ public class Application extends Controller {
     }
 
     public static void registerUser() {
-        render();
+        String randomID = Codec.UUID();
+        render(randomID);
     }
 
-    public static void saveUser(String email, String password, String name) {
-        System.out.println("got to saveUser method with user "+name);
-        User newUser = new User(email, password, name);
-        newUser.save();
-        User.connect(email, password);
-        Dashboard.index();
+    public static void saveUser(String email, String password, String name, String code, String randomID) {
+        System.out.println("Parameters are: "+name+" "+email+" "+password);
+        validation.equals(code, Cache.get(randomID)).message("Invalid code, please try again.");
+        if(validation.hasErrors()) {
+            render("Application/registerUser.html", randomID);
+        }
+        User user = new User(email, password, name);
+        user.save();
+
+        Cache.delete(randomID);
+
+        render("Application/registerUserSuccess.html", name);
     }
 
     public static void show(Long id) {
@@ -47,6 +57,13 @@ public class Application extends Controller {
         Recipe recipe = Recipe.findById(recipeId);
         recipe.addComment(user, content);
         show(recipeId);
+    }
+
+    public static void captcha(String id) {
+        Images.Captcha captcha = Images.captcha();
+        String code = captcha.getText("#000000");
+        Cache.set(id, code, "10mn");
+        renderBinary(captcha);
     }
 
 }

@@ -17,6 +17,9 @@ POST    /dashboard/new                          Dashboard.save
 GET     /user/register                          Application.registerUser
 POST    /user/register                          Application.saveUser
 
+# Captcha
+GET     /captcha                                Application.captcha
+
 # Ignore favicon requests
 GET     /favicon.ico                            404
 

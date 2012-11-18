@@ -31,14 +31,18 @@
                             <li><a href="/">Home</a></li>
                             #{if user}
                                 <li><a href="/logout">Logout</a></li>
+                                <li><a href="@{Dashboard.index()}">My Recipes</a></li>
+                                <li><a href="@{Dashboard.form()}">Submit</a></li>
                             #{/if}
                             #{if !user}
                                 <li><a href="@{Dashboard.index()}">Login</a></li>
                                 <li><a href="/user/register">Register</a></li>
                             #{/if}
-                            <li><a href="@{Dashboard.form()}">Submit</a></li>
                             <li><a href="/help">Help</a></li>
                         </ul>
+                        #{if user}
+                            <p class="navbar-text pull-right">Logged in as ${user}</p>
+                        #{/if}
                     </div><!--/.nav-collapse -->
                 </div>
             </div>
