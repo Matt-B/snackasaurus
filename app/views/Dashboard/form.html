@@ -2,8 +2,9 @@
 
 <h3>Write a new recipe</h3>
 
+<div class="span12">
 #{form @save()}
-
+<form class="form-horizontal">
 #{ifErrors}
 <p class="error">
     Please correct these errors.
@@ -13,7 +14,7 @@
 <p>
     #{field 'title'}
     <label>Recipe title:</label>
-    <input type="text" name="${field.name}"
+    <input type="text" name="${field.name}" class="input-xlarge"
            value="${recipe?.title}" />
     <span class="error">#{error 'recipe.title' /}</span>
     #{/field}
@@ -22,8 +23,9 @@
 <p>
     #{field 'ingredients'}
     <label>Enter some ingredients:</label>
-    <input type="text"
+    <input type="text" class="input-xlarge"
            name="${field.name}" value="${recipe?.ingredients?.join(',')}" />
+    <p class="help-block">Separate ingredients with a comma</p>
     <span class="error">#{error 'recipe.ingredients' /}</span>
     #{/field}
 </p>
@@ -31,7 +33,7 @@
 <p>
     #{field 'steps'}
     <label>Write some steps here:</label>
-    <textarea type="text" id="steps"
+    <textarea type="text" id="steps" class="input-xlarge"
               name="${field.name}" value="${recipe?.steps}">${recipe?.steps}</textarea>
     <span class="error">#{error 'recipe.steps' /}</span>
     #{/field}
@@ -42,3 +44,5 @@
 </p>
 
 #{/form}
+</form>
+</div>
