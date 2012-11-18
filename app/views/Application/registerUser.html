@@ -1,0 +1,31 @@
+#{extends 'main.html' /}
+#{set title:'snackasaurus' /}
+
+<h2>Register a new user</h2>
+#{form @saveUser()}
+
+<p>
+#{field 'email'}
+<label>Your e-mail address:</label>
+<input type="text" name="${field.name}" value="${user?.email}" />
+#{/field}
+</p>
+
+<p>
+#{field 'password'}
+<label>Your password:</label>
+<input type="password" name="${field.name}" value="${user?.password}" />
+#{/field}
+</p>
+
+<p>
+#{field 'name'}
+<label>Your real name:</label>
+<input type="text" name="${field.name}" value="${user?.name}" />
+#{/field}
+</p>
+
+<p>
+<input type="submit" value="Register!" />
+</p>
+#{/form}

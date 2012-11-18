@@ -13,6 +13,10 @@ GET     /dashboard/?                            Dashboard.index
 GET     /dashboard/new                          Dashboard.form
 POST    /dashboard/new                          Dashboard.save
 
+#User registration
+GET     /user/register                          Application.registerUser
+POST    /user/register                          Application.saveUser
+
 # Ignore favicon requests
 GET     /favicon.ico                            404
 

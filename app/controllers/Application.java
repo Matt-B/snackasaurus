@@ -25,6 +25,18 @@ public class Application extends Controller {
         render(frontRecipe, olderRecipes);
     }
 
+    public static void registerUser() {
+        render();
+    }
+
+    public static void saveUser(String email, String password, String name) {
+        System.out.println("got to saveUser method with user "+name);
+        User newUser = new User(email, password, name);
+        newUser.save();
+        User.connect(email, password);
+        Dashboard.index();
+    }
+
     public static void show(Long id) {
         Recipe recipe = Recipe.findById(id);
         render(recipe);
