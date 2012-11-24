@@ -51,6 +51,10 @@ public class Application extends Controller {
         render(recipe);
     }
 
+    public static void help() {
+        render();
+    }
+
     public static void postComment(Long recipeId, String content) {
         User user = User.find("byEmail", Security.connected()).first();
         Recipe recipe = Recipe.findById(recipeId);

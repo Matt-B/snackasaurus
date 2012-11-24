@@ -19,6 +19,9 @@ POST    /dashboard/delete                       Dashboard.delete
 GET     /user/register                          Application.registerUser
 POST    /user/register                          Application.saveUser
 
+#Help
+GET     /help                                   Application.help
+
 # Captcha
 GET     /captcha                                Application.captcha
 
