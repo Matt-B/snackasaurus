@@ -1,9 +1,15 @@
 #{extends 'main.html' /}
 
-<h3>Write a new recipe</h3>
+
+#{ifnot recipe?.id}
+<h3>Write, a new recipe</h3>
+#{/ifnot}
+#{else}
+<h3>Edit, this recipe</h3>
+#{/else}
 
 <div class="span12">
-#{form @save()}
+#{form @save(recipe?.id)}
 <form class="form-horizontal">
 #{ifErrors}
 <p class="error">

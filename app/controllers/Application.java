@@ -34,7 +34,6 @@ public class Application extends Controller {
     }
 
     public static void saveUser(String email, String password, String name, String code, String randomID) {
-        System.out.println("Parameters are: "+name+" "+email+" "+password);
         validation.equals(code, Cache.get(randomID)).message("Invalid code, please try again.");
         if(validation.hasErrors()) {
             render("Application/registerUser.html", randomID);

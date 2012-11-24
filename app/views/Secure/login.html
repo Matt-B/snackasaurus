@@ -1,11 +1,12 @@
 #{extends 'main.html' /}
+#{set title:'snackasaurus - login' /}
 
 <div id="login">
 	
 	<h2 class="form-signin-heading">Please sign in</h2>
 		
 	#{form @authenticate()}
-    <form class="form-signin">
+    <form class="form-horizontal">
 		
 		#{if flash.error}
 			<p class="error">
@@ -35,4 +36,7 @@
 		</p>
     </form>
 	#{/form}
+    <p>
+        If you don't have an account then <a href="/user/register">register here.</a>
+    </p>
 </div>

@@ -15,7 +15,6 @@ public class Dashboard extends Controller {
     @Before
     static void setConnectedUser() {
         if(Security.isConnected()) {
-            System.out.println("The user is connected");
             User user = User.find("byEmail", Security.connected()).first();
             renderArgs.put("user", user.name);
             renderArgs.put("email", user.email);
@@ -28,18 +27,32 @@ public class Dashboard extends Controller {
         render(recipes);
     }
 
-    public static void form() {
+    public static void form(Long id) {
+        if(id != null) {
+            Recipe recipe = Recipe.findById(id);
+            render(recipe);
+        }
         render();
     }
 
-    public static void save(String title, String ingredients, String steps) {
-        System.out.println(steps);
-        User author = User.find("byEmail", Security.connected()).first();
-        List<String> ingredientList = new ArrayList<String>();
-        for(String ingredient : ingredients.split(",")) {
-            ingredientList.add(ingredient);
+    public static void save(Long id, String title, String ingredients, String steps) {
+        Recipe recipe;
+        if(id == null) {
+            User author = User.find("byEmail", Security.connected()).first();
+            List<String> ingredientList = new ArrayList<String>();
+            for(String ingredient : ingredients.split(",")) {
+                ingredientList.add(ingredient);
+            }
+            recipe = new Recipe(author, title, ingredientList, steps);
+        } else {
+            recipe = Recipe.findById(id);
+            recipe.title = title;
+            recipe.steps = steps;
+            recipe.ingredients.clear();
+            for(String ingredient : ingredients.split(",")) {
+                recipe.ingredients.add(ingredient);
+            }
         }
-        Recipe recipe = new Recipe(author, title, ingredientList, steps);
 
         validation.valid(recipe);
         if(validation.hasErrors()) {
@@ -47,6 +60,12 @@ public class Dashboard extends Controller {
         }
 
         recipe.save();
+        index();
+    }
+
+    public static void delete(Long id) {
+        Recipe recipe = Recipe.findById(id);
+        recipe.delete();
         index();
     }
 

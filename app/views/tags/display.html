@@ -1,6 +1,6 @@
 *{Display a recipe as either title, summary or full}*
 
-<div class="recipe">
+<div class="recipe" xmlns="http://www.w3.org/1999/html">
     <h2 class="recipe-title">
         <a href="@{Application.show(_recipe.id)}">${_recipe.title}</a>
     </h2>
@@ -9,12 +9,14 @@
 #{if _as == 'full' || _as == 'summary'}
 
     <ul id="ingredients">
-        <p>You will need...</p>
+        <p><i>You will need...</i></p>
+        <p>
         #{list items:_recipe.ingredients, as:'ingredient'}
         <li>
             ${ingredient}
         </li>
         #{/list}
+        </p>
     </ul>
 #{/if}
 
@@ -24,8 +26,10 @@
     </ol>
 #{/if}
 
-${_recipe.comments.size() ?: 'no'}
-comment${_recipe.comments.size().pluralize()}
+#{if _as == 'summary'}
+    <a href="@{Application.show(_recipe.id)}" class="btn">Read more</a>
+#{/if}
+
 
 #{if _as == 'full'}
     #{list items:_recipe.comments, as:'comment'}

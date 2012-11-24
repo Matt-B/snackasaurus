@@ -25,25 +25,22 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="#">snackasaurus</a>
+                    <a class="brand" href="/">snackasaurus</a>
                     <div class="nav-collapse">
                         <ul class="nav">
-                            <li><a href="/">Home</a></li>
                             #{if user}
-                                <li><a href="/logout">Logout</a></li>
                                 <li><a href="@{Dashboard.index()}">My Recipes</a></li>
                                 <li><a href="@{Dashboard.form()}">Submit</a></li>
-                            #{/if}
-                            #{if !user}
-                                <li><a href="@{Dashboard.index()}">Login</a></li>
-                                <li><a href="/user/register">Register</a></li>
                             #{/if}
                             <li><a href="/help">Help</a></li>
                         </ul>
                         #{if user}
-                            <p class="navbar-text pull-right">Logged in as ${user}</p>
+                            <p class="navbar-text pull-right">Logged in as ${user} <a href="/logout" class="btn btn-primary">Logout</a></p>
                         #{/if}
-                    </div><!--/.nav-collapse -->
+                        #{if !user}
+                            <p class="navbar-text pull-right"><a href="/login" class="btn btn-primary">Login</a></p>
+                        #{/if}
+                    </div>
                 </div>
             </div>
         </div>

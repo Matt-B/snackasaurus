@@ -10,8 +10,10 @@ GET     /recipes/{id}                           Application.show
 
 #Dashboard area
 GET     /dashboard/?                            Dashboard.index
+GET     /dashboard/myrecipes/{id}               Dashboard.form
 GET     /dashboard/new                          Dashboard.form
 POST    /dashboard/new                          Dashboard.save
+POST    /dashboard/delete                       Dashboard.delete
 
 #User registration
 GET     /user/register                          Application.registerUser

@@ -1,14 +1,19 @@
 #{extends 'main.html' /}
 #{set title:'snackasaurus dashboard' /}
 
-Welcome ${user}!
+<h2>Welcome ${user}!</h2>
+<p><h3>Your recipes</h3></p>
 
 #{list items:recipes, as:'recipe'}
+<ul class="unstyled">
+<li class="well">
 <p class="recipe ${recipe_parity}">
-    <a href="/recipes/${recipe.id}">${recipe.title}</a>
+    <h4>${recipe.title}</h4> <div class="btn-group"><a class="btn" href="/recipes/${recipe.id}">View</a> <a class="btn" href="@{Dashboard.form(recipe.id)}">Edit</a> <a class="btn" href="@{Dashboard.delete(recipe.id)}">Delete</a></div>
 </p>
+</li>
+</ul>
 #{/list}
 
 <p id="newRecipe" >
-    <a href="/dashboard/new?"><span>+</span>submit a new recipe</a>
+    <a href="/dashboard/new?" class="btn pull-right">Submit a new recipe</a>
 </p>
