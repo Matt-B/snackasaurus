@@ -1,0 +1,26 @@
+#{extends 'main.html' /}
+#{set title:'snackasaurus - search' /}
+
+#{form @search(searchQuery)}
+
+#{field 'searchQuery'}
+        <label>Search query:</label>
+        <input type="text" name="${field.name}" class="input-xlarge"
+               value="${searchQuery}" />
+#{/field}
+
+<input type="submit" value="Search" />
+#{/form}
+
+
+
+#{if searchResults}
+#{list items:searchResults, as:'searchResult'}
+
+<a href="/recipes/${searchResult.id}">${searchResult.title}</a>
+
+#{/list}
+#{/if}
+#{elseif searchQuery}
+        <h3>no recipes found</h3>
+#{/elseif}

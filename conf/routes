@@ -8,6 +8,10 @@ GET     /                                       Application.index
 #Recipe page
 GET     /recipes/{id}                           Application.show
 
+#Search
+GET     /search                                 Application.search
+POST    /search                                 Application.search
+
 #Dashboard area
 GET     /dashboard/?                            Dashboard.index
 GET     /dashboard/myrecipes/{id}               Dashboard.form

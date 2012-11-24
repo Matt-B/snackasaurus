@@ -69,4 +69,13 @@ public class Application extends Controller {
         renderBinary(captcha);
     }
 
+    public static void search(String searchQuery) {
+        if(searchQuery != null) {
+            List<Recipe> searchResults = Recipe.find("byTitleIlikeAndStepsIlike", "%"+searchQuery+"%", "%"+searchQuery+"%").fetch();
+            render(searchQuery, searchResults);
+        } else {
+            render();
+        }
+    }
+
 }
