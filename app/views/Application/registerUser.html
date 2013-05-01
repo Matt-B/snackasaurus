@@ -1,6 +1,10 @@
 #{extends 'main.html' /}
 #{set title:'snackasaurus' /}
 
+<div id="login" class="row">
+
+<div class="span7 offset2 well">
+
 <h2>Register a new user</h2>
 #{form @saveUser()}
 
@@ -13,21 +17,21 @@
 <p>
 #{field 'email'}
 <label>Your e-mail address:</label>
-<input type="text" name="${field.name}" value="${user?.email}" />
+<input class="span7" type="text" name="${field.name}" value="${user?.email}" />
 #{/field}
 </p>
 
 <p>
 #{field 'password'}
 <label>Your password:</label>
-<input type="password" name="${field.name}" value="${user?.password}" />
+<input class="span7" type="password" name="${field.name}" value="${user?.password}" />
 #{/field}
 </p>
 
 <p>
 #{field 'name'}
 <label>Your real name:</label>
-<input type="text" name="${field.name}" value="${user?.name}" />
+<input class="span7" type="text" name="${field.name}" value="${user?.name}" />
 #{/field}
 </p>
 
@@ -35,11 +39,13 @@
     <label for="code">Please type the code below: </label>
     <img src="@{Application.captcha(randomID)}" />
     <br />
-    <input type="text" name="code" id="code" size="18" value="" />
+    <input class="span7" type="text" name="code" id="code" size="18" value="" />
     <input type="hidden" name="randomID" value="${randomID}" />
 </p>
 
 <p>
-<input type="submit" value="Register!" />
+<input type="submit" value="Sign Up" />
 </p>
 #{/form}
+</div>
+</div>

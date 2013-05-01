@@ -1,42 +1,45 @@
 #{extends 'main.html' /}
 #{set title:'snackasaurus - login' /}
 
-<div id="login">
-	
-	<h2 class="form-signin-heading">Please sign in</h2>
-		
-	#{form @authenticate()}
-    <form class="form-horizontal">
-		
-		#{if flash.error}
-			<p class="error">
-				&{flash.error}
-			</p>
-		#{/if}
-		#{if flash.success}
-			<p class="success">
-				&{flash.success}
-			</p>
-		#{/if}
-	
-		<p id="username-field">
-			<label for="username">&{'secure.username'}</label>
-			<input type="text" class="input-block-level" name="username" id="username" value="${flash.username}" />
-		</p>
-		<p id="password-field">
-			<label for="password">&{'secure.password'}</label>
-			<input type="password" class="input-block-level" name="password" id="password" value="" />
-		</p>
-		<p id="remember-field">
-			<input type="checkbox" name="remember" id="remember" value="true" ${flash.remember ? 'checked="true"' : ''} />
-			<label for="remember" class="checkbox">&{'secure.remember'}</label>
-		</p>
-		<p id="signin-field">
-			<input type="submit" id="signin" value="&{'secure.signin'}" />
-		</p>
-    </form>
-	#{/form}
-    <p>
-        If you don't have an account then <a href="/user/register">register here.</a>
-    </p>
+<div id="login" class="row">
+
+    <div class="span7 offset2 well">
+
+        <h2 class="form-signin-heading">Please sign in</h2>
+
+        #{form @authenticate()}
+        <form class="form-horizontal">
+
+            #{if flash.error}
+                <p class="error">
+                    &{flash.error}
+                </p>
+            #{/if}
+            #{if flash.success}
+                <p class="success">
+                    &{flash.success}
+                </p>
+            #{/if}
+
+            <p id="username-field">
+                <label for="username">&{'secure.username'}</label>
+                <input type="text" class="input-block-level" name="username" id="username" value="${flash.username}" />
+            </p>
+            <p id="password-field">
+                <label for="password">&{'secure.password'}</label>
+                <input type="password" class="input-block-level" name="password" id="password" value="" />
+            </p>
+            <p id="remember-field">
+                <input type="checkbox" name="remember" id="remember" value="true" ${flash.remember ? 'checked="true"' : ''} />
+                <label for="remember" class="checkbox">&{'secure.remember'}</label>
+            </p>
+            <p id="signin-field">
+                <input type="submit" id="signin" value="&{'secure.signin'}" />
+            </p>
+        </form>
+        #{/form}
+        <p>
+            If you don't have an account then <a href="/user/register">register here.</a>
+        </p>
+    </div>
 </div>
