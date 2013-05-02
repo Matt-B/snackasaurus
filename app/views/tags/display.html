@@ -8,8 +8,9 @@
 
 #{if _as == 'full' || _as == 'summary'}
 
+    <b>Ingredients:</b>
+
     <ul id="ingredients">
-        <p><i>You will need...</i></p>
         <p>
         #{list items:_recipe.ingredients, as:'ingredient'}
         <li>
@@ -20,24 +21,34 @@
     </ul>
 #{/if}
 
+<p>
 #{if _as == 'full'}
     <div class="steps">
-        ${_recipe.steps}
+
+        <b>Instructions:</b>
+        <p>
+            ${_recipe.steps}
+        </p>
     </ol>
 #{/if}
 
 #{if _as == 'summary'}
-    <a href="@{Application.show(_recipe.id)}" class="btn">Read more</a>
+    <a href="@{Application.show(_recipe.id)}">Read more...</a>
 #{/if}
-
+</p>
 
 #{if _as == 'full'}
-    #{list items:_recipe.comments, as:'comment'}
-        <div class="comment">
-            On ${comment.postedAt}, ${comment.author.name} said:
-            ${comment.content}
-        </div>
-    #{/list}
+
+    <b>Comments:</b>
+    <p>
+        #{list items:_recipe.comments, as:'comment'}
+            <div class="comment">
+                <b>${comment.author.name} said:</b>
+                <p><i>${comment.content}</i></p>
+                <small>Posted: ${comment.postedAt.format("dd-MM-YYYY HH:mm")}</small>
+            </div>
+        #{/list}
+    </p>
 #{/if}
 
 #{else}

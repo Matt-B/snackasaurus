@@ -14,6 +14,7 @@
     #{/if}
 </ul>
 
+<div class="row span8 offset1">
 #{display recipe:recipe, as: 'full' /}
 
 #{if user}
@@ -30,5 +31,6 @@
 #{/form}
 #{/if}
 #{if !user}
-<h3>Got something to say? <a href="/login">Login</a> to post a comment here.</h3>
+<b>Got something to say? <a href="/login">Login</a> to post a comment here.</b>
 #{/if}
+</div>
