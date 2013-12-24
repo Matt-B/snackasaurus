@@ -1,0 +1,158 @@
+User(admin):
+    email: admin@snackasaurus.co.uk
+    password: password1
+    name: Site Admin
+
+Recipe(1):
+    title: Italian Baked Potatoes
+    posted: 2013-12-25
+    author: admin
+    ingredients:
+        - 4 large waxy potatoes
+        - 100g grated parmesan
+        - 200ml olive oil
+        - 12 basil leaves
+        - 1 large chopped red onion
+        - 400g can chopped tomatoes
+        - 5 tbsp white breadcrumbs
+        - 2 sliced mozarella balls
+    steps: Preheat the oven to 190°C. Fry the onions until soft. Cut the potatoes into slices and parboil. Drain and brush with olive oil. Put a layer of the potatoes in a ovenproof dish and cover with the onions and tomatoes. Add some olive oil then the mozzarella. Sprinkle with the parmesan and shreds of basil. Season then add further layers of potato and basil to almost fill the dish. Cover the top with passata more olive oil and the breadcrumbs. For a crusty top put a layer of grated parmesan on top. Bake for 30 min.
+
+Recipe(2):
+    title: Spanish Omelette
+    posted: 2013-12-25
+    author: admin
+    ingredients:
+        - 3 large diced non-waxy potatoes
+        - 2 large sliced onions
+        - 4 tbsp olive oil
+        - 5 beaten eggs
+        - salt
+    steps: Season the potatoes and onions with salt. Fry the onions until soft or preferably until reduced and brown in colour. Set to one side. Fry the potatoes until soft and light brown. Add the onions to the potatoes to heat through then pour the mixture into the beaten eggs. Return to the pan and fry until set. Turn over using a plate or place under the grill to cook the other side. Add pieces of chorizo for a change.
+
+Recipe(3):
+    title: Lamb with Olives
+    posted: 2013-12-25
+    author: admin
+    ingredients:
+        - 1.4kg Lamb leg or fillet cubed
+        - 200g olives
+        - 5 tbsp olive oil
+        - salt
+        - 2 medium onions chopped
+        - 1 chilli (seeds removed)
+        - 1 clove garlic (chopped)
+        - 100ml red wine
+    steps: Cook the lamb in 3 tbsp of olive oil until brown. Set to one side. Chop the onions garlic and chilli to a pulp in a food processor and cook in the remainder of the oil until golden brown. Add the wine and allow it to reduce. Add the olives and the cooked lamb season and cook over a low heat. Cook for 45 - 60 min. Adding more wine if it becomes dry.
+
+Recipe(4):
+    title: Flash Fried Moroccan Chicken
+    posted: 2013-12-25
+    author: admin
+    ingredients:
+        - 350g chicken fillets
+        - 2 tbsp sultanas or raisins (40g)
+        - 1 chilli (deseeded & chopped)
+        - 2 tbsp pine nuts (30g)
+        - 1 tbsp dried chilli pepper
+        - 1 tbsp chopped mint
+        - 2 cloves garlic (chopped)
+        - Juice of 1 lemon
+        - 2 tbsp olive oil
+        - 1 tsp ground cinnamon
+    steps: Cut the chicken into largish pieces. Mix the fresh and dried chillis, garlic, lemon, the olive oil, cinnamon, sultanas or raisins and pine nuts and use to marinade the chicken for one hour. Heat some oil and cook the chicken pieces until golden. Pour the marinade into the pan and bring to the boil. Season and serve sprinkled with the mint and some cous cous (approx 60 - 75g per person).
+
+Recipe(5):
+    title: Chicken with Garlic Cider and Cream
+    posted: 2013-12-25
+    author: admin
+    ingredients:
+        - 2 chicken breasts
+        - 1 bay leaf
+        - 8 garlic cloves
+        - 50ml olive oil
+        - 25g butter
+        - 100ml dry cider
+        - 100ml single or double cream
+    steps: Blanch the garlic cloves in boiling water for 4 minutes. Drain and remove the skins. Heat the oil with the butter and fry the chicken until golden. Turn down the heat and add the garlic and bay leaf. Cover and cook for 20 min. Do not allow the butter to burn or the garlic to fry and become chewy. Remove the chicken. Add the cider to the pan and allow to evaporate while mashing the garlic with a fork. When the sauce is slushy pour in the cream and season. Return the chicken to the pan and heat through.
+
+Recipe(6):
+    title: Spiced Lamb Tagine
+    posted: 2013-12-25
+    author: admin
+    ingredients:
+        - 6 lamb shanks or cubed leg
+        - 1 cinnamon stick
+        - 2 large onions (chopped)
+        - 1 tsp tomato puree
+        - 4 celery sticks (chopped)
+        - 4 tbsp hoisin sauce
+        - 1 pinch of saffron
+        - 1.2 ltr lamb stock
+        - 1 tsp cumin seeds
+        - 100g prunes
+        - 5cm chopped fresh ginger
+        - 2 tbsp preserved lemons
+        - 4 cloves garlic (chopped)
+        - 3 tbsp olive oil
+    steps: Brown the lamb and set to one side. Cook the onions and celery in the pan until golden. Add the saffron, cumin, ginger and garlic and cook for 1 min. Add the lamb, cinnamon, tomato puree, hoisin sauce and stock to cover the meat. Simmer for 2 hr. Add the prunes and lemons and simmer uncovered for 20 min. Serve with cous cous and garnish with flaked almonds and coriander.
+
+Recipe(7):
+    title: Stuffed Tomatoes
+    posted: 2013-12-25
+    author: admin
+    ingredients:
+        - 12 plum tomatoes
+        - 175g fresh breadcrumbs
+        - 8 anchovy fillets (chopped)
+        - 2 cloves garlic (crushed)
+        - 1 mozzarella
+        - 6 tbsp olive oil
+    steps: Preheat the oven to 225°C. Halve the tomatoes lengthways and remove the seeds into a bowl. Place the tomato halves skin side down in a roasting tin. Mix the tomato seeds with the breadcrumbs, anchovy fillets, garlic, parsley, mozzarella and 2 tbsp of olive oil. Season and spoon into the tomato halves. Drizzle with the remaining oil (sprinkle with grated parmesan if required) and bake for 25 min or until the filling is golden. Chopped fried bacon can be used instead of the anchovy fillets if preferred.
+
+Recipe(8):
+    title: Mushroom Risotto
+    posted: 2013-12-25
+    author: admin
+    ingredients:
+        - 75g butter
+        - 6 tbsp grated parmesan
+        - 1 chopped onion
+        - 2 tbsp chopped parsley
+        - 1 garlic clove (chopped)
+        - 300g mixed mushrooms
+        - 300g risotto rice
+        - 1.5ltr chicken stock
+    steps: Melt half the butter in a saute pan and fry the onion and garlic until soft. Add the mushrooms and cook for 5 min. Stir in the risotto rice and add the stock a little at a time waiting for the liquid to be absorbed. After 20 min the rice will be soft and swollen. Take the pan off the heat and stir in the remaining butter and the parmesan. Cover and leave to rest for 2 min. Serve garnished with the parsley.
+
+Recipe(9):
+    title: Chinese Noodles with Chicken
+    posted: 2013-12-25
+    author: admin
+    ingredients:
+        - 225g dried egg noodles
+        - 225g large mushrooms (sliced)
+        - 1 red onion sliced thinly
+        - 2tbsp dark soy sauce
+        - 1 tbsp groundnut oil
+        - 2tbsp rice wine / dry sherry
+        - 4cm fresh ginger (grated)
+        - 2tsp cornflour dissolved in 2 tbsp water
+        - 2 cloves garlic (chopped)
+        - 350g chicken in strips
+        - Coriander leaves
+    steps: Cook the noodles. Drain and run cold water through them to stop them cooking. Cook the onions in the oil over a high heat. Add the ginger and garlic. Fry until the garlic becomes golden then add the chicken. Continue cooking and stir when the chicken is golden on one side. Allow the other side to cook. Add the mushrooms and cook for 4 min. Sprinkle the soy sauce and wine into the pan and add the cornflour mixture. Stir and as it thickens add the noodles. When hot serve garnished with the coriander.
+
+Recipe(10):
+    title: Broccoli and Cheddar Soup
+    posted: 2013-12-25
+    author: admin
+    ingredients:
+        - 1 chopped onion
+        - 175g grated mature cheddar
+        - 175g chopped potato
+        - 1 tbsp oil
+        - 450g broccoli
+        - 85-ml chicken stock or water
+        - ½ tbsp sugar
+    steps: Fry the onion and the potato in the oil. Trim the broccoli cutting the stems into 1cm slices. Add the stems to the potatoes and onion and fry for 5 min. Reserve half the broccoli florets and add the rest to the potato mixture with the water or chicken stock. Simmer for 20 min until the vegetables are soft. Add the remaining florets and cook for 1 min. Blend the soup in a liquidiser. Return the soup to the pan with the cheese and allow the cheese to melt. Stir and serve.
