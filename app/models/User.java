@@ -2,6 +2,7 @@ package models;
 
 import play.db.jpa.Model;
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 /**
  * User class
@@ -10,6 +11,7 @@ import javax.persistence.Entity;
  * Date: 4/17/12
  */
 @Entity
+@Table(name="snackasaurus_users")
 public class User extends Model {
 
     public String email;
