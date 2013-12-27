@@ -13,7 +13,7 @@ public class Bootstrap extends Job {
 
     public void doJob() {
         if(User.count() == 0) {
-            Fixtures.loadModels("../test/data.yml");
+            Fixtures.loadModels("../test/recipeCatalog.yml");
         }
     }
 
