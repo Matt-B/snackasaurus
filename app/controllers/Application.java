@@ -71,11 +71,11 @@ public class Application extends Controller {
     }
 
     public static void search(String searchQuery) {
-        if(searchQuery != null) {
-            List<Recipe> searchResults = Recipe.find("byTitleIlikeAndStepsIlike", "%"+searchQuery+"%", "%"+searchQuery+"%").fetch();
+        if(searchQuery != null && !searchQuery.isEmpty()) {
+            List<Recipe> searchResults = Recipe.find("byTitleIlike", "%"+searchQuery+"%").fetch();
             render(searchQuery, searchResults);
         } else {
-            render();
+            render(searchQuery);
         }
     }
 
