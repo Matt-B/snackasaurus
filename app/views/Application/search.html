@@ -17,7 +17,9 @@
 #{if searchResults}
 #{list items:searchResults, as:'searchResult'}
 
-<a href="/recipes/${searchResult.id}">${searchResult.title}</a>
+<p>
+    <a href="/recipes/${searchResult.id}">${searchResult.title}</a>
+</p>
 
 #{/list}
 #{/if}
