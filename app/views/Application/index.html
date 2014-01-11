@@ -15,17 +15,12 @@
 </div>
 
 <div class="row">
-#{if frontRecipe}
+#{if firstThreeRecipes}
+    #{list items:firstThreeRecipes, as:'recipe'}
     <div class="span4">
-        #{display recipe:frontRecipe, as:'summary' /}
-     </div>
-#{if olderRecipes}
-    #{list items:olderRecipes, as:'oldRecipe'}
-    <div class="span4">
-        #{display recipe:oldRecipe, as: 'summary' /}
+        #{display recipe:recipe, as: 'summary' /}
     </div>
     #{/list}
-#{/if}
 #{/if}
 </div>
 #{else}
