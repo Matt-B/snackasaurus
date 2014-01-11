@@ -22,10 +22,6 @@ public class Application extends Controller {
     }
 
     public static void index() {
-//        Recipe frontRecipe = Recipe.find("order by posted desc").first();
-//        List<Recipe> olderRecipes = Recipe.find("order by posted desc").fetch(3);
-//        if(olderRecipes.size() != 0)
-//          olderRecipes.remove(0);
         List<Recipe> firstThreeRecipes = Recipe.find("order by posted desc").fetch(3);
         render(firstThreeRecipes);
     }
