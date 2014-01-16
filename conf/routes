@@ -23,6 +23,11 @@ POST    /dashboard/delete                       Dashboard.delete
 GET     /user/register                          Application.registerUser
 POST    /user/register                          Application.saveUser
 
+#Password recovery
+GET     /user/recover                           Application.recoverUser
+GET     /user/resetPassword                     Application.resetPassword
+POST    /user/resetPassword                     Application.changePassword
+
 #Help
 GET     /help                                   Application.help
 

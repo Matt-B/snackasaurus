@@ -28,4 +28,8 @@ public class User extends Model {
         return find("byEmailAndPassword", email, password).first();
     }
 
+    public void changePassword(String newPassword) {
+        this.password = newPassword;
+    }
+
 }
