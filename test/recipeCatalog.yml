@@ -1,6 +1,6 @@
 User(admin):
     email: admin@snackasaurus.co.uk
-    password: password1
+    hashedPassword: $2a$10$k/hnSmh8ucVzBVqiowcG.ONUwSdth0nbNjuG/ilho6j4YZ5oQk8Gy
     name: Site Admin
 
 Recipe(1):
