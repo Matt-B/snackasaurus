@@ -17,6 +17,10 @@ public class Bootstrap extends Job {
             Fixtures.deleteDatabase();
             Fixtures.loadModels("../test/recipeCatalog.yml");
         }
+        if(Play.id.equals("prod") && User.count() == 0) {
+            Fixtures.deleteDatabase();
+            Fixtures.loadModels("../test/recipeCatalog.yml");
+        }
     }
 
 
