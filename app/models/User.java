@@ -1,5 +1,6 @@
 package models;
 
+import org.mindrot.jbcrypt.BCrypt;
 import play.db.jpa.Model;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -19,13 +20,18 @@ public class User extends Model {
     public String name;
 
     public User(String email, String password, String name) {
+        String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
         this.email = email;
-        this.password = password;
+        this.password = hashedPassword;
         this.name = name;
     }
 
     public static User connect(String email, String password) {
-        return find("byEmailAndPassword", email, password).first();
+        User user = find("byEmail", email).first();
+        if(BCrypt.checkpw(password, user.password))
+            return user;
+        else
+            return null;
     }
 
     public void changePassword(String newPassword) {
