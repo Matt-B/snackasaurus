@@ -10,12 +10,12 @@ import java.net.URLEncoder;
 
 public class Mails extends Mailer {
 
-    public static void resetPassword(User user, String recoveryUrl) {
+    public static void resetPassword(User user) {
         String randomUUID = Codec.UUID();
         Cache.set(user.email, randomUUID, "30mn");
         String recoveryUrl = Router.getFullUrl("Application.resetPassword")
                 + "?"
-                + URLEncoder.encode(user.email + "//" + randomUUID);
+                + URLEncoder.encode(user.email + "--" + randomUUID);
         setFrom("snackasaurus <do-not-reply@dinosaursareawesome.co.uk>");
         setSubject("How to reset your snackasaurus password.");
         addRecipient(user.email);

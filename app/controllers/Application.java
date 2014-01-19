@@ -2,6 +2,7 @@ package controllers;
 
 import models.Recipe;
 import models.User;
+import notifiers.Mails;
 import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.SimpleEmail;
 import play.cache.Cache;
@@ -10,6 +11,7 @@ import play.libs.Images;
 import play.libs.Mail;
 import play.mvc.Before;
 import play.mvc.Controller;
+import play.mvc.Router;
 
 import java.net.URLDecoder;
 import java.net.URLEncoder;
@@ -37,13 +39,17 @@ public class Application extends Controller {
     }
 
     public static void recoverUser() {
-        String randomID = Codec.UUID();
-        render(randomID);
+        if(!Security.isConnected()) {
+            String randomID = Codec.UUID();
+            render(randomID);
+        } else {
+            Controller.notFound();
+        }
     }
 
     public static void resetPassword(String token) {
         String code = URLDecoder.decode(request.querystring);
-        String[] array = code.split("//");
+        String[] array = code.split("--");
         String email = array[0];
         if(Cache.get(array[0]).equals(array[1]))
             render(email);
@@ -54,6 +60,7 @@ public class Application extends Controller {
     public static void changePassword(String emailAddress, String newPassword) {
         User user = User.find("byEmail", emailAddress).first();
         user.changePassword(newPassword);
+        user.save();
         index();
     }
 
@@ -62,8 +69,9 @@ public class Application extends Controller {
         if(validation.hasErrors()) {
             render("Application/recoverUser.html", randomID);
         }
-        if(User.find("byEmail", email).first() != null) {
-            sendReminderEmail(email);
+        User user = User.find("byEmail", email).first();
+        if(user != null) {
+            Mails.resetPassword(user);
             Cache.delete(randomID);
             index();
         } else {
@@ -115,23 +123,6 @@ public class Application extends Controller {
             render(searchQuery, searchResults);
         } else {
             render(searchQuery);
-        }
-    }
-
-    private static void sendReminderEmail(String emailAddress) {
-        String randomUUID = Codec.UUID();
-        Cache.set(emailAddress, randomUUID, "30mn");
-        String recoverId = URLEncoder.encode(emailAddress + "//" + randomUUID);
-        try {
-            SimpleEmail email = new SimpleEmail();
-            email.setFrom("sender@dinosaursareawesome.co.uk");
-            email.addTo(emailAddress);
-            email.setSubject("snackasaurus password reset");
-            email.setMsg("Is this thing on? http://localhost:9000/user/resetPassword?" + recoverId);
-            Mail.send(email);
-        } catch (EmailException e) {
-            System.out.println("Error - "+ e.getStackTrace().toString());
-            Controller.error();
         }
     }
 
