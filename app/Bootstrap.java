@@ -1,4 +1,5 @@
 import models.User;
+import play.Play;
 import play.jobs.Job;
 import play.jobs.OnApplicationStart;
 import play.test.Fixtures;
@@ -12,7 +13,8 @@ import play.test.Fixtures;
 public class Bootstrap extends Job {
 
     public void doJob() {
-        if(User.count() == 0) {
+        if(Play.id.equals("dev")) {
+            Fixtures.deleteDatabase();
             Fixtures.loadModels("../test/recipeCatalog.yml");
         }
     }
