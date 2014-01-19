@@ -16,26 +16,25 @@ import javax.persistence.Table;
 public class User extends Model {
 
     public String email;
-    public String password;
+    public String hashedPassword;
     public String name;
 
     public User(String email, String password, String name) {
-        String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
         this.email = email;
-        this.password = hashedPassword;
+        this.hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt());;
         this.name = name;
     }
 
     public static User connect(String email, String password) {
         User user = find("byEmail", email).first();
-        if(BCrypt.checkpw(password, user.password))
+        if(BCrypt.checkpw(password, user.hashedPassword))
             return user;
         else
             return null;
     }
 
     public void changePassword(String newPassword) {
-        this.password = newPassword;
+        this.hashedPassword = BCrypt.hashpw(newPassword, BCrypt.gensalt());
     }
 
 }
