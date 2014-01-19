@@ -42,11 +42,9 @@ public class Application extends Controller {
     }
 
     public static void resetPassword(String token) {
-        System.out.println(request.querystring);
         String code = URLDecoder.decode(request.querystring);
         String[] array = code.split("//");
         String email = array[0];
-        System.out.println("cache get - " + Cache.get(array[0]));
         if(Cache.get(array[0]).equals(array[1]))
             render(email);
         else
@@ -54,7 +52,6 @@ public class Application extends Controller {
     }
 
     public static void changePassword(String emailAddress, String newPassword) {
-        System.out.println("email: " + emailAddress + " and password = " + newPassword);
         User user = User.find("byEmail", emailAddress).first();
         user.changePassword(newPassword);
         index();
@@ -134,8 +131,8 @@ public class Application extends Controller {
             Mail.send(email);
         } catch (EmailException e) {
             System.out.println("Error - "+ e.getStackTrace().toString());
+            Controller.error();
         }
-        System.out.println("I sent an e-mail");
     }
 
 }
